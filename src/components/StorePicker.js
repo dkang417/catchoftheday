@@ -2,6 +2,7 @@ import React from 'react';
 import { getFunName } from '../helpers';
 
 class StorePicker extends React.Component {
+    // or use arrow function 
     constructor() {
         super();
         this.goToStore = this.goToStore.bind(this);
