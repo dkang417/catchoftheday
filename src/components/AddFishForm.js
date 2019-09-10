@@ -1,19 +1,17 @@
 import React from 'react';
 
 class AddFishForm extends React.Component {
-    constructor() {
-        super();
-        this.createFish = this.createFish.bind(this);
-    }
-
+    // constructor() {
+    //     super();
+    //     this.createFish = this.createFish.bind(this);
+    // }
     nameRef = React.createRef();
     priceRef = React.createRef();
     statusRef = React.createRef();
     descRef = React.createRef();
     imageRef = React.createRef();
 
-
-    createFish(event) {
+    createFish = (event) => {
         // stop the form from submitting
         event.preventDefault();
         // get the text from input
@@ -24,10 +22,13 @@ class AddFishForm extends React.Component {
             desc: this.descRef.current.value,
             image: this.imageRef.current.value
         };
+        // update state from APP to inventory to here
+        // call add fish that lives in App
         this.props.addFish(fish);
+
         // refresh the form 
         event.currentTarget.reset();
-    }
+    };
     render() {
         return (
             <form className="fish-edit" onSubmit={this.createFish}>

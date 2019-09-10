@@ -3,14 +3,14 @@ import { getFunName } from '../helpers';
 
 class StorePicker extends React.Component {
     // or use arrow function 
-    constructor() {
-        super();
-        this.goToStore = this.goToStore.bind(this);
-    }
+    // constructor() {
+    //     super();
+    //     this.goToStore = this.goToStore.bind(this);
+    // }
 
     myInput = React.createRef();
 
-    goToStore(event) {
+    goToStore = (event) => {
         // stop form from submitting
         event.preventDefault();
         // get the text from input 
