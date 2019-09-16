@@ -15,15 +15,31 @@ class App extends React.Component {
     };
 
     componentDidMount() {
-        this.ref = base.syncState(`${this.props.match.params.storeId}/fishes`, {
+        const { params } = this.props.match;
+        // first reinstate our localstorage 
+        const localStorageRef = localStorage.getItem(params.storeId);
+        if (localStorageRef) {
+            this.setState({ order: JSON.parse(localStorageRef) });
+        }
+        console.log(localStorageRef);
+        this.ref = base.syncState(`${params.storeId}/fishes`, {
             context: this,
             state: 'fishes'
         });
     }
+
+    componentDidUpdate() {
+        console.log(this.state.order);
+        localStorage.setItem(this.props.match.params.storeId, JSON.stringify(this.state.order));
+    }
+
+
     // prevent data memory leaks
     componentWillUnmount() {
         base.removeBinding(this.ref);
     }
+
+
 
     // updating state of fishes object
     // methods that update state and state need to live in the same component
