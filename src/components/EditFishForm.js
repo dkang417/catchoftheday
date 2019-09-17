@@ -2,19 +2,33 @@ import React from 'react';
 
 
 class EditFishForm extends React.Component {
+
+    handleChange = event => {
+        console.log(event.currentTarget.name);
+        // update that fish 
+
+        // take a copy of current fish 
+        const updatedFish = {
+            ...this.props.fish,
+            [event.currentTarget.name]: event.currentTarget.value
+        };
+        this.props.updatedFish(key, updatedFish);
+        console.log(updatedFish);
+    };
+
     render() {
         return (
             <div className="fish-edit">
-                <input type="text" name="name" />
-                <input type="text" name="price" />
-                <select type="text" name="status">
+                <input type="text" name="name" onChange={this.handleChange} value={this.props.fish.name} />
+                <input type="text" name="price" onChange={this.handleChange} value={this.props.fish.name} />
+                <select type="text" name="status" onChange={this.handleChange} value={this.props.fish.status} >
                     <option value="available">Fresh </option>
-                    <option value="unavailable"> Solt out </option>
+                    <option value="unavailable"> Sold out </option>
                 </select>
-                <textarea name="desc" />
-                <input type="text" name="image" />
+                <textarea name="desc" onChange={this.handleChange} value={this.props.fish.desc} />
+                <input type="text" onChange={this.handleChange} name="image" />
             </div>
-        )
+        );
     }
 }
 export default EditFishForm;
