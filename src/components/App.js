@@ -90,7 +90,8 @@ class App extends React.Component {
                                 index={key}
                                 details={this.state.fishes[key]}
                                 addToOrder={this.addToOrder}
-                            />)}
+                            />)
+                        }
                     </ul>
                 </div>
                 <Order fishes={this.state.fishes} order={this.state.order} />
