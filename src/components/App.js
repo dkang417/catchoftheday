@@ -59,7 +59,7 @@ class App extends React.Component {
         // take a copy of current state 
         const fishes = { ...this.state.fishes };
         // update that state 
-        fishes[key] = updatedfish;
+        fishes[key] = updatedFish;
         // set that to state 
         this.setState({ fishes: fishes });
     }
@@ -98,7 +98,7 @@ class App extends React.Component {
                 {/* inventory passes down addfish and loadsamplefishes in props */}
                 <Inventory
                     addFish={this.addFish}
-                    updatedFish={this.updateFish}
+                    updateFish={this.updateFish}
                     loadSampleFishes={this.loadSampleFishes}
                     fishes={this.state.fishes}
                 />
