@@ -38,9 +38,6 @@ class App extends React.Component {
     componentWillUnmount() {
         base.removeBinding(this.ref);
     }
-
-
-
     // updating state of fishes object
     // methods that update state and state need to live in the same component
     addFish = (fish) => {
@@ -86,6 +83,7 @@ class App extends React.Component {
         // 3.Call setstate to update our state object 
         this.setState({ order: order });
     }
+
     removeFromOrder = key => {
         // 1.take a copy of state 
         const order = { ...this.state.order };
