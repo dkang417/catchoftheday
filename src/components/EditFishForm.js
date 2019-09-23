@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class EditFishForm extends React.Component {
 
-    static PropTypes = {
+    static propTypes = {
         fish: PropTypes.shape({
             image: PropTypes.string,
             namedesc: PropTypes.string,
