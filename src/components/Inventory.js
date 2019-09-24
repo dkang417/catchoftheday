@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import firebase from '.firebase';
+import firebase from 'firebase';
 import AddFishForm from './AddFishForm';
 import EditFishForm from './EditFishForm';
 import Login from './Login';
-import { firebaseApp } from '../base';
+import base, { firebaseApp } from '../base';
 
 
 class Inventory extends React.Component {
@@ -14,16 +14,50 @@ class Inventory extends React.Component {
         deleteFish: PropTypes.func,
         loadSampleFishes: PropTypes.func
     };
-    authHandler = async (authData) => {
+
+    state = {
+        uid: null,
+        owner: null
+    };
+
+
+    authHandler = async authData => {
         console.log(authData);
+        // 1- look up the current store in firebase database
+        const store = await base.fetch(this.props.storeId, { context: this });
+        console.log(store);
+        // 2- claim it if no owner 
+        if (!store.owner) {
+            // save it as our own
+            await base.post(`${this.props.storeId}/owner`, {
+                data: authData.user.uid
+            })
+        }
+        // 3- set the state of the inventory component to reflect current user
+        this.setState({
+            uid: authData.user.uid,
+            owner: store.owner || authData.user.uid
+        });
     }
-    authenticate = (provider) => {
-        const authProvider = new firebase.auth[`${provider}authProvider`]();
+
+    authenticate = provider => {
+        const authProvider = new firebase.auth[`${provider}AuthProvider`]();
         firebaseApp.auth().signInWithPopup(authProvider).then(this.authHandler);
     }
 
     render() {
-        return <Login authenticate={this.authenticate} />
+        // 1. check if they are logged in 
+        if (!this.state.uid) {
+            return <Login authenticate={this.authenticate} />;
+        }
+        // 2. check if they are the owner of the store
+        if (this.state.uid !== this.state.owner) {
+            return <div>
+                <p> sorry you are not the owner </p>
+            </div>
+        }
+        // 3. they must be the onwer, just render inventory 
+
         return (
             <div className="Inventory">
                 <h2> Inventory </h2>
