@@ -20,6 +20,14 @@ class Inventory extends React.Component {
         owner: null
     };
 
+    componentDidMount() {
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                this.authHandler({ user });
+            }
+        })
+    }
+
 
     authHandler = async authData => {
         console.log(authData);
@@ -43,9 +51,16 @@ class Inventory extends React.Component {
     authenticate = provider => {
         const authProvider = new firebase.auth[`${provider}AuthProvider`]();
         firebaseApp.auth().signInWithPopup(authProvider).then(this.authHandler);
+    };
+
+    logout = async () => {
+        console.log('logging out');
+        await firebase.auth().signOut();
+        this.setState({ uid: null });
     }
 
     render() {
+        const logout = <button onClick={this.logout}>Log Out!</button>
         // 1. check if they are logged in 
         if (!this.state.uid) {
             return <Login authenticate={this.authenticate} />;
@@ -54,13 +69,14 @@ class Inventory extends React.Component {
         if (this.state.uid !== this.state.owner) {
             return <div>
                 <p> sorry you are not the owner </p>
+                {logout}
             </div>
         }
         // 3. they must be the onwer, just render inventory 
-
         return (
             <div className="Inventory">
                 <h2> Inventory </h2>
+                {logout}
                 {Object.keys(this.props.fishes).map(key =>
                     <EditFishForm
                         key={key}
