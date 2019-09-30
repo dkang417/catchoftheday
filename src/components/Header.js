@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// stateless function component 
+// implicit return 
 const Header = props => (
     <header className="top">
         <h1>

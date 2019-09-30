@@ -14,6 +14,7 @@ class App extends React.Component {
         order: {}
     };
 
+    // lifecycle methods 
     componentDidMount() {
         const { params } = this.props.match;
         // first reinstate our localstorage 
@@ -38,6 +39,10 @@ class App extends React.Component {
     componentWillUnmount() {
         base.removeBinding(this.ref);
     }
+
+
+
+    // custom methods 
     // updating state of fishes object
     // methods that update state and state need to live in the same component
     addFish = (fish) => {
@@ -51,6 +56,7 @@ class App extends React.Component {
             fishes: fishes
         });
     };
+
     // for any changes made in Inventory fish state updates 
     updateFish = (key, updatedFish) => {
         // take a copy of current state 
@@ -69,7 +75,6 @@ class App extends React.Component {
         // 3. upstate the state 
         this.setState({ fishes: fishes });
     }
-
 
     loadSampleFishes = () => {
         this.setState({ fishes: sampleFishes });
@@ -92,6 +97,8 @@ class App extends React.Component {
         // 3.Call setstate to update our state object 
         this.setState({ order: order });
     }
+
+
 
     render() {
         return (
