@@ -8,14 +8,18 @@ class StorePicker extends React.Component {
     static propTypes = {
         history: PropTypes.object
     };
-    // or use arrow function 
+
+    // this is creating the ref - on our input component
+    // ref={this.myInput} 
+    myInput = React.createRef();
+
+    // binding this.  not binding will cause this to be undefined 
     // constructor() {
     //     super();
     //     this.goToStore = this.goToStore.bind(this);
     // }
 
-    myInput = React.createRef();
-
+    // another solution is using an arrow function  
     goToStore = (event) => {
         // stop form from submitting
         event.preventDefault();
