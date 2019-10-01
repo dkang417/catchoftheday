@@ -9,6 +9,7 @@ import base from '../base';
 class App extends React.Component {
 
     // initial state when first loaded
+    // what does state look like before we add items to state - 
     state = {
         fishes: {},
         order: {}

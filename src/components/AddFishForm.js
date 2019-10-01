@@ -3,10 +3,7 @@ import PropTypes from 'prop-types';
 
 
 class AddFishForm extends React.Component {
-    // constructor() {
-    //     super();
-    //     this.createFish = this.createFish.bind(this);
-    // }
+
     nameRef = React.createRef();
     priceRef = React.createRef();
     statusRef = React.createRef();
@@ -16,7 +13,7 @@ class AddFishForm extends React.Component {
     static propTypes = {
         addFish: PropTypes.func
     };
-
+    // needs arrow function since it is a created method
     createFish = (event) => {
         // stop the form from submitting
         event.preventDefault();
