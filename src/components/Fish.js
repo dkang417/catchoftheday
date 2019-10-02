@@ -15,6 +15,7 @@ class Fish extends React.Component {
     }
 
     render() {
+        // destructure our variables 
         const { image, name, price, desc, status } = this.props.details;
         const isAvailable = status === 'available';
 

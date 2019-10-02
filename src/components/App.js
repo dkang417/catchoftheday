@@ -107,6 +107,10 @@ class App extends React.Component {
                 <div className="menu">
                     <Header tagline="Fresh Seafood Market" />
                     <ul className="fishes">
+
+                        {/* loop through each fish in state      */}
+                        {/* each child in an array or iterator needs a unique key */}
+
                         {Object.keys(this.state.fishes).map(key =>
                             <Fish
                                 key={key}
@@ -116,6 +120,7 @@ class App extends React.Component {
                             />)
                         }
                     </ul>
+
                 </div>
                 <Order
                     fishes={this.state.fishes}
