@@ -43,7 +43,7 @@ class App extends React.Component {
 
 
 
-    // custom methods 
+    // custom made methods  
     // updating state of fishes object
     // methods that update state and state need to live in the same component
     addFish = (fish) => {
