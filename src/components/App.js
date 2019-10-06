@@ -82,9 +82,9 @@ class App extends React.Component {
     };
 
     addToOrder = (key) => {
-        // 1.take a copy of state 
+        // 1.Take a copy of state 
         const order = { ...this.state.order };
-        // 2.Either add to the order or update the number in our order
+        // 2. Either add to the order or update the number in our order
         order[key] = order[key] + 1 || 1;
         // 3.Call setstate to update our state object 
         this.setState({ order: order });
@@ -108,7 +108,10 @@ class App extends React.Component {
                     <Header tagline="Fresh Seafood Market" />
                     <ul className="fishes">
 
+
+                        {/* jsx does not have looping features so we need to have an array with .map or foreach */}
                         {/* loop through each fish in state      */}
+                        {/* our state is an object, so we need to use object.keys */}
                         {/* each child in an array or iterator needs a unique key */}
 
                         {Object.keys(this.state.fishes).map(key =>
