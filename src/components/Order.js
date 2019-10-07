@@ -11,6 +11,7 @@ class Order extends React.Component {
         removeFromOrder: PropTypes.func
     };
 
+    // render geting to big so separating into renderOrder
     renderOrder = (key) => {
         const fish = this.props.fishes[key];
         const count = this.props.order[key];
@@ -23,7 +24,6 @@ class Order extends React.Component {
 
         // make sure fish is loaded before we continue 
         if (!fish) return null;
-
         if (!isAvailable) {
             return (
                 <CSSTransition {...transitionOptions}>
@@ -59,6 +59,7 @@ class Order extends React.Component {
 
     render() {
         const orderIds = Object.keys(this.props.order);
+
         const total = orderIds.reduce((prevTotal, key) => {
             const fish = this.props.fishes[key];
             const count = this.props.order[key];
