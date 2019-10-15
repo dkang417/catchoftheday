@@ -18,7 +18,8 @@ class App extends React.Component {
     // lifecycle methods 
     componentDidMount() {
         const { params } = this.props.match;
-        // first reinstate our localstorage 
+        // first reinstate our localstorage  
+
         const localStorageRef = localStorage.getItem(params.storeId);
         if (localStorageRef) {
             this.setState({ order: JSON.parse(localStorageRef) });
@@ -31,6 +32,7 @@ class App extends React.Component {
     }
 
     componentDidUpdate() {
+        // persisting order state with local storage
         console.log(this.state.order);
         localStorage.setItem(this.props.match.params.storeId, JSON.stringify(this.state.order));
     }
