@@ -14,6 +14,7 @@ class App extends React.Component {
         fishes: {},
         order: {}
     };
+    //state is the home and props is the car to get where it needs to be displayed
 
     // lifecycle methods 
     componentDidMount() {
@@ -111,12 +112,6 @@ class App extends React.Component {
                 <div className="menu">
                     <Header tagline="Fresh Seafood Market" />
                     <ul className="fishes">
-
-
-                        {/* jsx does not have looping features so we need to have an array with .map or foreach */}
-                        {/* loop through each fish in state      */}
-                        {/* our state is an object, so we need to use object.keys */}
-                        {/* each child in an array or iterator needs a unique key */}
 
                         {Object.keys(this.state.fishes).map(key =>
                             <Fish
