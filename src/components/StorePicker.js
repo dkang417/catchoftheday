@@ -1,4 +1,3 @@
-// always need to import React 
 import React from 'react';
 import PropTypes from 'prop-types';
 import { getFunName } from '../helpers';
@@ -45,6 +44,4 @@ class StorePicker extends React.Component {
         )
     }
 }
-
-// always export what you want
 export default StorePicker;
