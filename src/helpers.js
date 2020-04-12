@@ -1,3 +1,5 @@
+// javascript helper functions here
+
 export function formatPrice(cents) {
   return (cents / 100).toLocaleString("en-US", {
     style: "currency",

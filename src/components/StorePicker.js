@@ -22,7 +22,7 @@ class StorePicker extends React.Component {
     goToStore = (event) => {
         // stop form from submitting
         event.preventDefault();
-        // get the text from input 
+        // get the text from input- dont touch the DOM sync text into state
         const storeName = this.myInput.current.value;
         // change the page to /store/whatever-they-entered
         this.props.history.push(`/store/${storeName}`);
