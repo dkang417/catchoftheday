@@ -1,8 +1,10 @@
 import React from 'react';
 
+//stateless functional component 
 const NotFound = () => (
     <div>
-        <h1>Page Not Found! </h1>
+        <h1>Not Found?!?! </h1>
+
     </div>
 );
 
