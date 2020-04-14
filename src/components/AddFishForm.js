@@ -25,6 +25,8 @@ class AddFishForm extends React.Component {
             desc: this.descRef.current.value,
             image: this.imageRef.current.value
         };
+        // console.log(fish);
+        // passing state through props here 
         // update state from APP to inventory to here
         // call add fish that lives in App
         this.props.addFish(fish);

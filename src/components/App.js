@@ -7,7 +7,7 @@ import Fish from './Fish';
 import base from '../base';
 
 class App extends React.Component {
-
+    // creating state here 
     // initial state when first loaded
     // what does state look like before we add items to state - 
     state = {
@@ -45,16 +45,16 @@ class App extends React.Component {
 
 
 
-    // custom made methods  
+    // custom made method that takes a fish
     // updating state of fishes object
     // methods that update state and state need to live in the same component
     addFish = (fish) => {
         // to UPDATE STATE we need to setstate
-        // 1. take a copy of the existing state - never want to mutate the original state
+        // 1. take a copy of the existing state - never want to reach into state and mutate the original state
         const fishes = { ...this.state.fishes };
         // 2. add our new fish to fish variable 
         fishes[`fish${Date.now()}`] = fish;
-        // 3. set the new fishes object to state 
+        // 3. set the new fishes object to state by calling method
         this.setState({
             fishes: fishes
         });
