@@ -86,9 +86,9 @@ class App extends React.Component {
     };
 
 
-    // update our order for fishes and quantity of fishes 
+    // update our (state) order for fishes and quantity of fishes 
     addToOrder = (key) => {
-        // 1.Take a copy of state 
+        // 1.Take a copy of state since we dont want to mutate
         const order = { ...this.state.order };
         // 2. Either add to the order or update the number in our order
         order[key] = order[key] + 1 || 1;

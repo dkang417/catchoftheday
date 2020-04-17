@@ -31,9 +31,12 @@ class Fish extends React.Component {
 
                 <button
                     disabled={!isAvailable}
+
                     onClick={() => this.props.addToOrder(this.props.index)}
                 >
+                    {/* ternary statement      */}
                     {isAvailable ? 'Add To Order' : 'Sold Out! '}
+
                 </button>
 
             </li>
