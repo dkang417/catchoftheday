@@ -1,10 +1,10 @@
 // This is just some sample data so you don't have to think of your own!
 const fishes = {
   fish1: {
-    name: "Pacific Halibut",
-    image: "/images/hali.jpg",
+    name: "Yummy Cupcake",
+    image: "/images/cupcake.png",
     desc:
-      "Everyone’s favorite white fish. We will cut it to the size you need and ship it.",
+      "Everyone’s favorite cupcake",
     price: 1724,
     status: "available"
   },

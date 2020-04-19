@@ -24,7 +24,8 @@ class App extends React.Component {
         if (localStorageRef) {
             this.setState({ order: JSON.parse(localStorageRef) });
         }
-        console.log(localStorageRef);
+
+
         this.ref = base.syncState(`${params.storeId}/fishes`, {
             context: this,
             state: 'fishes'
@@ -33,12 +34,12 @@ class App extends React.Component {
 
     componentDidUpdate() {
         // persisting order state with local storage
-        console.log(this.state.order);
+
         localStorage.setItem(this.props.match.params.storeId, JSON.stringify(this.state.order));
     }
 
 
-    // prevent data memory leaks
+    // prevent data memory leaks when going back from one store to homepage
     componentWillUnmount() {
         base.removeBinding(this.ref);
     }
@@ -111,7 +112,7 @@ class App extends React.Component {
         return (
             <div className="catch-of-the-day">
                 <div className="menu">
-                    <Header tagline="Fresh Seafood Market" />
+                    <Header tagline="We are foodies" />
 
                     <ul className="fishes">
 
