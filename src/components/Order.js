@@ -24,6 +24,7 @@ class Order extends React.Component {
 
         // make sure fish is loaded before we continue 
         if (!fish) return null;
+
         if (!isAvailable) {
             return (
                 <CSSTransition {...transitionOptions}>

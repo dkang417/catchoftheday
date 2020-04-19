@@ -20,6 +20,7 @@ class App extends React.Component {
     componentDidMount() {
         const { params } = this.props.match;
         // first reinstate our localstorage  
+        // add local storage order into state
         const localStorageRef = localStorage.getItem(params.storeId);
         if (localStorageRef) {
             this.setState({ order: JSON.parse(localStorageRef) });
@@ -34,6 +35,7 @@ class App extends React.Component {
 
     componentDidUpdate() {
         // persisting order state with local storage
+        // when order gets modified. our local storage gets updated
 
         localStorage.setItem(this.props.match.params.storeId, JSON.stringify(this.state.order));
     }
@@ -41,6 +43,7 @@ class App extends React.Component {
 
     // prevent data memory leaks when going back from one store to homepage
     componentWillUnmount() {
+
         base.removeBinding(this.ref);
     }
 
