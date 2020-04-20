@@ -18,7 +18,7 @@ class Order extends React.Component {
         const isAvailable = fish && fish.status === 'available';
         const transitionOptions = {
             classNames: "order",
-            key,
+            key: key,
             timeout: { enter: 500, exit: 500 }
         };
 
