@@ -60,6 +60,7 @@ class EditFishForm extends React.Component {
                     onChange={this.handleChange}
                     name="image"
                 />
+                {/* inline arrow function */}
                 <button onClick={() => this.props.deleteFish(this.props.index)} >Remove Fish</button>
             </div>
         );

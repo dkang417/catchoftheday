@@ -77,10 +77,10 @@ class App extends React.Component {
     deleteFish = (key) => {
         // 1. take a copy of state 
         const fishes = { ...this.state.fishes };
-        // 2. update the state by removing 
+        // 2. update the state by removing an item from state
         // we are setting it to null because of firebase requirement 
         fishes[key] = null;
-        // 3. upstate the state 
+        // 3. update the state 
         this.setState({ fishes: fishes });
     }
 
