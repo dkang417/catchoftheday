@@ -19,7 +19,7 @@ class Inventory extends React.Component {
         uid: null,
         owner: null
     };
-
+    // when we load page, firebase will check for logged in user
     componentDidMount() {
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
@@ -28,7 +28,7 @@ class Inventory extends React.Component {
         })
     }
 
-
+    // once someone signs in 
     authHandler = async authData => {
         console.log(authData);
         // 1- look up the current store in firebase database
@@ -49,12 +49,14 @@ class Inventory extends React.Component {
     }
 
     authenticate = provider => {
+        // const authProvider = new firebase.auth.GithubAuthProvider();
+        // needs to be dynamic for github and twitter
         const authProvider = new firebase.auth[`${provider}AuthProvider`]();
         firebaseApp.auth().signInWithPopup(authProvider).then(this.authHandler);
     };
 
     logout = async () => {
-        console.log('logging out');
+        // console.log('logging out');
         await firebase.auth().signOut();
         this.setState({ uid: null });
     }
@@ -68,7 +70,7 @@ class Inventory extends React.Component {
         // 2. check if they are the owner of the store
         if (this.state.uid !== this.state.owner) {
             return <div>
-                <p> sorry you are not the owner </p>
+                <p> Sorry you are not the owner </p>
                 {logout}
             </div>
         }
