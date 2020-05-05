@@ -115,7 +115,7 @@ class App extends React.Component {
         return (
             <div className="catch-of-the-day">
                 <div className="menu">
-                    <Header tagline="We are foodies" />
+                    <Header tagline="Fresh Seafood" />
 
                     <ul className="fishes">
 

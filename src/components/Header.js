@@ -11,7 +11,7 @@ const Header = props => (
                 <span className="of">mm</span>
                 <span className="the">yum</span>
             </span> */}
-            Cafe
+            Market
         </h1>
         <h3 className="tagline">
             <span>{props.tagline}</span>
