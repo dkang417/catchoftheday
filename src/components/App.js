@@ -52,6 +52,7 @@ class App extends React.Component {
     // custom made method that takes a fish
     // updating state of fishes object
     // methods that update state and state need to live in the same component
+
     addFish = (fish) => {
         // to UPDATE STATE we need to setstate
         // 1. take a copy of the existing state - never want to reach into state and mutate the original state
@@ -60,9 +61,17 @@ class App extends React.Component {
         fishes[`fish${Date.now()}`] = fish;
         // 3. set the new fishes object to state by calling method
         this.setState({
-            fishes: fishes
+            fishes
         });
     };
+
+    // addFish = (fish) => {
+    //     const fishes = { ...this.state.fishes };
+    //     fishes[`fish${Date.now()}`] = fish;
+    //     this.setState({
+    //         fishes: fishes
+    //     });
+    // }
 
     // for any changes made in Inventory fish state updates 
     updateFish = (key, updatedFish) => {
