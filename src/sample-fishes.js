@@ -1,4 +1,5 @@
 // This is just some sample data so you don't have to think of your own!
+// load sample fishes 
 const fishes = {
   fish1: {
     name: "Halibut",

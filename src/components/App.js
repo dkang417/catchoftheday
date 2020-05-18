@@ -36,17 +36,14 @@ class App extends React.Component {
     componentDidUpdate() {
         // persisting order state with local storage
         // when order gets modified. our local storage gets updated
-
         localStorage.setItem(this.props.match.params.storeId, JSON.stringify(this.state.order));
     }
 
 
     // prevent data memory leaks when going back from one store to homepage
     componentWillUnmount() {
-
         base.removeBinding(this.ref);
     }
-
 
 
     // custom made method that takes a fish
@@ -94,7 +91,6 @@ class App extends React.Component {
     }
 
     loadSampleFishes = () => {
-        // console.log('PlEASE LOAD THE SAMPLE FISHES');
         this.setState({ fishes: sampleFishes });
     };
 
